@@ -1,0 +1,88 @@
+name = "nockvm-e2e"
+defaultTargets = ["NockvmE2E"]
+
+license = "Apache-2.0"
+
+# Third-party Lean dependencies (Mathlib and others) are used at the revisions pinned in
+# lake-manifest.json. Nock, ArkLib and this package are built from source.
+
+[leanOptions]
+autoImplicit = false
+
+# ArkLib: upstream main c488a3a4 from GitHub. The ten modules of upstream pull requests #1280 and #1282
+# that this package imports are vendored in vendor/arklib-fs as ArkLibFs.* modules (see NOTICE).
+[[require]]
+name = "Arklib"
+git = "https://github.com/Verified-zkEVM/ArkLib"
+rev = "c488a3a4dabd74c543ee39836523b116dbc7ba2b"
+
+[[require]]
+name = "arklibFs"
+path = "vendor/arklib-fs"
+
+# nockvm library: the enclosing repository.
+[[require]]
+name = "nock"
+path = ".."
+
+[[lean_lib]]
+name = "NockvmE2E"
+
+# the slow Lean prover (untrusted, executed; no Mathlib in its import closure).
+[[lean_exe]]
+name = "nockvm-e2e-prove"
+root = "NockvmE2E.Exec.ProverMain"
+
+# the flat executable verifier (Mathlib-free closure: VField, Flat, Dag, Verify; imports Exec/Trace, Json, ProverField, Tip5Core).
+[[lean_exe]]
+name = "nockvm-e2e-verify"
+root = "NockvmE2E.Exec.VerifyMain"
+
+# family-generic gates (famGates j8|j9a) + flat verify; imports Mathlib via FamGates.
+[[lean_exe]]
+name = "nockvm-e2e-verify-fam"
+root = "NockvmE2E.Exec.VerifyFamMain"
+
+# certified verifier: `main` = print ∘ verifyBytes ∘ readFiles (CERTIFIED.md, Exec/CertBytes.lean, Exec/CertSound.lean).
+[[lean_exe]]
+name = "nockvm-e2e-verify-cert"
+root = "NockvmE2E.Exec.VerifyCertMain"
+
+# Tip5 bench (baseline = Tip5Core only; fast = + Tip5Fast csimp). Mathlib-free.
+[[lean_exe]]
+name = "nockvm-e2e-t5bench-base"
+root = "NockvmE2E.Exec.Tip5BenchBase"
+
+[[lean_exe]]
+name = "nockvm-e2e-t5bench"
+root = "NockvmE2E.Exec.Tip5Bench"
+
+# Check: deployed `setup'` root vs the spec VK (`VKSpecExe`), on real J-8 instances. Mathlib-free.
+[[lean_exe]]
+name = "nockvm-e2e-vkspec"
+root = "NockvmE2E.Exec.VKSpecMain"
+
+# emits the three J-9 A chip documents (computeChipVCLHX9, axisChipJ9, splitChipJ9) for the prover's run dir.
+[[lean_exe]]
+name = "nockvm-e2e-j9aemit"
+root = "NockvmE2E.Exec.J9AEmitMain"
+
+# old setup (verbatim copy) vs new setupData, byte-identity + wall time. Mathlib-free.
+[[lean_exe]]
+name = "nockvm-e2e-vkregress"
+root = "NockvmE2E.Exec.VKRegress"
+
+# J-9 AL dump (add | mul | toy | absent): ALU chip doc, traces, pubeq.json with prim codes. Untrusted tooling.
+[[lean_exe]]
+name = "nockvm-e2e-j9alemit2"
+root = "NockvmE2E.Exec.J9ALEmit2Main"
+
+# generator of the ALU verifier literal and the primitive token table (untrusted tooling; run, then cp into Exec/).
+[[lean_exe]]
+name = "nockvm-e2e-genal"
+root = "NockvmE2E.Exec.GenALMain"
+
+# Fiat-Shamir driver over nockvm's staged J-9 AL generator -> prove (FS coins). Untrusted tooling; links Mathlib via nock.
+[[lean_exe]]
+name = "nockvm-e2e-j9al-prove"
+root = "NockvmE2E.Exec.DriveJ9ALMain"

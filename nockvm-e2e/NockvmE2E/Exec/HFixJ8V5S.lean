@@ -1,0 +1,275 @@
+/-
+HSpec discharge: `exec_e2e_J8V5S` = `exec_e2e_J8V5` with the `hspec` binder deleted, supplied by `hspec_of_shape hgates hsh` (HSpecGen).
+-/
+import NockvmE2E.Exec.HFixJ8V5
+import NockvmE2E.Exec.HSpecGen
+
+open BinaryTree InductiveMerkleTree OracleComp OracleSpec ProtocolSpec Polynomial
+open Interaction.Oracle Interaction.Oracle.Security Interaction.Oracle.Security.StateRestoration
+open Interaction.Oracle.FiatShamir
+open Fri.Spec Domain
+open BatchedFri.Spec BatchedFri.Spec.BatchingRound
+open scoped NNReal ENNReal
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxRecDepth 100000
+set_option pp.deepTerms false
+set_option pp.maxSteps 2000
+
+namespace NockvmE2E.Exec.E2EJ8V
+open NockvmE2E.Exec NockvmE2E.Exec.Tr NockvmE2E.Exec.J8Chips NockvmE2E.Exec.J8ChipsK NockvmE2E.Emit Nock.Emit NockvmE2E.J8 NockvmE2E.J8.TieJ8G
+open NockvmE2E.J8.InstJ8W (sigmaX tabIdx)
+open NockvmE2E.J8.TieJ8 (HopZero)
+open NockvmE2E.Exec.E2EJ8P2 NockvmE2E.Exec.E2EJ8P
+open NockvmE2E.Exec.E2ELR NockvmE2E.Exec.InstGen NockvmE2E.Lift NockvmE2E.Lift.Alternating NockvmE2E.Rap
+open NockvmE2E.J8.InstJ8 (Φ0)
+
+open NockvmE2E.Exec.E2EJ8F
+open NockvmE2E.Exec.V NockvmE2E.Exec.VL NockvmE2E.Merkle NockvmE2E.Exec.E2E NockvmE2E.Exec.Emb NockvmE2E.FriPort
+  NockvmE2E.Exec.E2EFri NockvmE2E.Exec.E2EMain NockvmE2E.Exec.E2EResid NockvmE2E.Exec.E2EW0 NockvmE2E.Exec.E2EFinal
+open NockvmE2E.Succ NockvmE2E.Deep NockvmE2E.Succ.FriC NockvmE2E.FriPort NockvmE2E.FriPort.Batched
+  NockvmE2E.Succ.FriDeep NockvmE2E.Succ.App NockvmE2E.Lift NockvmE2E.Lift.Alternating
+  NockvmE2E.Exec.Inst NockvmE2E.Rap NockvmE2E.Merkle.RapFriQ NockvmE2E.Merkle.MA NockvmE2E.Exec.SL NockvmE2E.Exec.Cover
+  NockvmE2E.Exec.SF NockvmE2E.Merkle.Fri NockvmE2E.Exec.Layout NockvmE2E.Exec.SM
+open NockvmE2E.Exec.E2EJ8 NockvmE2E.Exec.E2EJ8.J8X
+open NockvmE2E.J8.InstJ8 (Datum DatumOK J8 PbOfX PosX posX_of_shape hNof ω0 StmtP PubP)
+open NockvmE2E.J8.TieJ8G (Inst HopsOK NumOK RdSpec Gflat hsz_of_hops gbJ hdagU_J8 hoff_J8 hdom_J8 colJ pubJ chalK)
+open NockvmE2E.J8.InstJ8W (sigmaX RJ8 hfree_J8)
+open NockvmE2E.Exec.MaskOk (maskOk)
+
+variable (XI0 : ExecInst) (hsh : J8Shape.j8ShapeOk (XI170 XI0) = true) (hshX : J8Shape.j8ShapeXOk (XI170 XI0) = true)
+
+set_option hygiene false in
+local notation "ωS" => smoothDomain (XI170 XI0).nD (J8Shape.hn32_of_shape hsh)
+set_option hygiene false in
+local notation "s1" => (fun _ : Fin ((XI170 XI0).k + 1) => (1 : ℕ+))
+
+variable [SampleableType KC]
+variable (D : DatX (XI170 XI0) hsh) (hdk : DatumOK D.d)
+variable (R : TabRestr (J8 D.d hdk)) (hT : R.T' = (XI170 XI0).tabs.size)
+  (hσ : ∀ t : Fin R.T', R.σ t = sigmaX (XI170 XI0) (Fin.cast hT t)) (hfree : (J8 D.d hdk).AccOn R.q)
+
+set_option hygiene false in
+local notation "IX" => (⟨XI170 XI0, hsh, posX_of_shape hsh, D.kroots, D.krootsV, D.Rt, D.regs, D.ids, D.idx, D.rk, D.lay, D.d, D.hd,
+  hdk, D.hdN, D.hdω, R, hT, hσ, hfree⟩ : Inst)
+
+set_option hygiene false in
+local notation "npubV" => (XI170 XI0).pubOf.size
+set_option hygiene false in
+local notation "hcapV" => hcap_of_shapeX IX (XI170 XI0).pubOf.size rfl hshX
+
+variable (tp : Fin (IX).Jm.T)
+
+set_option hygiene false in
+local notation "JXn" => (IX).JJ (XI170 XI0).pubOf.size tp hcapV
+set_option hygiene false in
+local notation "prV" => prX IX (XI170 XI0).pubOf.size tp hcapV
+
+variable (hchips : chipsOk (XI170 XI0) = true)
+  (hnum0 : ∀ t : Fin (XI170 XI0).tabs.size,
+    (chipNumeral (XI170 XI0).tabs[t].chip).getD 0 = numOf D.d (sigmaX (XI170 XI0) t))
+
+set_option hygiene false in
+local notation "hd1" => ((J8Shape.d_of_shape hsh).symm : (1 : ℕ+).val = (XI170 XI0).d)
+set_option hygiene false in
+local notation "hNHV" => hNH_X IX (XI170 XI0).pubOf.size tp hcapV 1 hd1
+set_option hygiene false in
+local notation "hpdV" => hpd_X IX (XI170 XI0).pubOf.size tp hcapV
+set_option hygiene false in
+local notation "hopsV" => (hops_of_chips IX hchips litTies hnum0).1
+set_option hygiene false in
+local notation "hnumV" => (hops_of_chips IX hchips litTies hnum0).2.1
+set_option hygiene false in
+local notation "GX" => Gflat IX (hsz_of_hops IX jDers jMeta hnumV hopsV)
+set_option hygiene false in
+local notation "PJ" => (deepParamsJ JXn prV ωS (31 / 64) (friBound s1 1) hNHV hpdV).regroup GX gbJ
+set_option hygiene false in
+local notation "AJ" => (airJ JXn prV ωS (31 / 64) (friBound s1 1) hNHV hpdV).regroup GX gbJ
+set_option hygiene false in
+local notation "R0P" => R0J JXn prV ωS (31 / 64) (friBound s1 1)
+set_option hygiene false in
+local notation "RestP" => RestJ JXn prV ωS (31 / 64) (friBound s1 1) hNHV hpdV
+set_option hygiene false in
+local notation "RestVP" => RestVJ JXn prV ωS (31 / 64) (friBound s1 1) hNHV hpdV
+set_option hygiene false in
+local notation "cIV" => cIX IX (XI170 XI0).pubOf.size tp hcapV rfl
+set_option hygiene false in
+local notation "mV" => (XI170 XI0).nc * (JXn).r + (PJ).nq - 1
+
+set_option hygiene false in
+local notation "EJ" => eOf (XI170 XI0) cIV (JXn).r (NockvmE2E.Exec.E2EJ8F.F.hmV_X XI0 hsh hshX D hdk R hT hσ hfree tp hchips hnum0)
+
+variable [DecidableEq ((PJ).statement (R0P) (RestP)).M0] [Finite ((PJ).statement (R0P) (RestP)).M0]
+  [DecidableEq (friPlan (ω := ωS) (PJ) (AJ) (R0P) (RestP) (RestVP) (EJ)).Mfin]
+  [Finite (friPlan (ω := ωS) (PJ) (AJ) (R0P) (RestP) (RestVP) (EJ)).Mfin]
+  (I0 : OracleInterface ((PJ).statement (R0P) (RestP)).M0)
+  (I : (r : ℕ) → OracleInterface (Cols (PJ).colRoundX (Fin (2 ^ (XI170 XI0).nD) → ZMod NockvmE2E.Exec.p) r))
+  (Ifin : OracleInterface (friPlan (ω := ωS) (PJ) (AJ) (R0P) (RestP) (RestVP) (EJ)).Mfin)
+variable [∀ j, SampleableType ((pSpec (XI170 XI0).k (ω := ωS) s1 (XI170 XI0).l).Challenge j)]
+variable (m0 : ((PJ).statement (R0P) (RestP)).M0) (mf : (R0P).Mfin)
+
+set_option hygiene false in
+local notation "HNQ" => ((nq_of_shapeX hshX).trans rfl : (XI170 XI0).nq = (PJ).nq)
+set_option hygiene false in
+local notation "HBLK" => hblk_of_shapeX IX (XI170 XI0).pubOf.size tp hcapV rfl hshX
+set_option hygiene false in
+local notation "HBLKQ" => hblkq_X IX (PJ).nq (HNQ).ge
+set_option hygiene false in
+local notation "MDV" => mdX (XI170 XI0) (J8Shape.hn1_of_shape hsh) (PJ).colRoundX
+  (rkP (XI170 XI0) (PJ) rfl HNQ cIV HBLK HBLKQ) toyEncB
+set_option hygiene false in
+local notation "LV" => LX (XI170 XI0) (J8Shape.hn32_of_shape hsh)
+
+set_option hygiene false in
+local notation "MC" => msC (PJ) (AJ) (R0P) (RestP) (RestVP) (EJ) I0 I Ifin 4 s1 1 (XI170 XI0).l DgJ8 encK MDV LV (S := KC)
+set_option hygiene false in
+local notation "RM" => RapP.rapMask (extFrame (JXn).Φ0 2) KC (MDV).toRapMaskData ((PJ).statement (R0P) (RestP)).M0
+  (friPlan (ω := ωS) (PJ) (AJ) (R0P) (RestP) (RestVP) (EJ)).Mfin I0 I Ifin 4
+set_option hygiene false in
+local notation "BM" => bmask (S := KC) s1 1 (XI170 XI0).l DgJ8 encK LV
+set_option hygiene false in
+local notation "OPN" => OpenAll DgJ8 (merkleSkels (MC))
+set_option hygiene false in
+local notation "DA" => daOf (XI170 XI0) (J8Shape.hn32_of_shape hsh) (PJ) (AJ) (R0P) (RestP) (RestVP) (EJ) I0 I Ifin DgJ8 MDV cIV sl0X sl1X
+  (PJ).ha (PJ).hz
+  (single_az (XI170 XI0) JXn prV (ω := ωS) (31 / 64) (friBound s1 1) hNHV hpdV).1
+  (single_az (XI170 XI0) JXn prV (ω := ωS) (31 / 64) (friBound s1 1) hNHV hpdV).2 m0 mf
+set_option hygiene false in
+local notation "EMBF" => fun (π : FlatProof) =>
+  embedMsgs dgOf (MC) (mdAppend (RM) (BM) (DA) (dsbC, dsmC s1 1 (XI170 XI0).l LV encK))
+    (openAllOf (merkleSkels (MC)) (flatTrees (XI170 XI0) π)) (msgsOf (XI170 XI0) π).toList
+
+
+set_option hygiene false in
+local notation "CS" => (SideCfg.mk (XI170 XI0) (NockvmE2E.Exec.SideInst.opIdxX (XI170 XI0)) (NockvmE2E.Exec.SideInst.ptKX (XI170 XI0)))
+set_option hygiene false in
+local notation "SMS" => NockvmE2E.Merkle.SideMerkle.bMask (S := KC) s1 1 (XI170 XI0).l LV DgJ8 encK
+set_option hygiene false in
+local notation "TabM[" St "," Sa "]" => (∀ dd, succinctRange DgJ8 (OPN) (NQuery (merkleSkels (MC))) St Sa (MC) dd)
+set_option hygiene false in
+local notation "FSM" => FST XI0 (J8Shape.hn32_of_shape hsh) (PJ) (AJ) (R0P) (RestP) (RestVP) (EJ) I0 I Ifin 1 encK MDV LV
+set_option hygiene false in
+local notation "HTM" => HT XI0 (J8Shape.hn32_of_shape hsh) (PJ) (AJ) (R0P) (RestP) (RestVP) (EJ) I0 I Ifin 1 encK MDV LV
+set_option hygiene false in
+local notation "ROM" => (mdAppend (RM) (BM) (DA) (dsbC, dsmC s1 1 (XI170 XI0).l LV encK))
+
+
+/-! ## the J-8 instance of the side protocol -/
+set_option hygiene false in
+local notation "ZStmt'" => NockvmE2E.Exec.SideInst.SStmt (XI170 XI0)
+set_option hygiene false in
+local notation "ZSalt'" => (Statement × Salt)
+set_option hygiene false in
+local notation "ZOp" => OpenAll DgJ8 (merkleSkels (SMS))
+set_option hygiene false in
+local notation "Zskels" => NockvmE2E.Exec.SideInst.skelsSide (XI170 XI0)
+set_option hygiene false in
+local notation "ZSS" => KC
+set_option hygiene false in
+local notation "ZmS" => NockvmE2E.Exec.SideInst.mSX (XI170 XI0)
+set_option hygiene false in
+local notation "ZopIdx" => NockvmE2E.Exec.SideInst.opIdxX (XI170 XI0)
+set_option hygiene false in
+local notation "ZptK" => NockvmE2E.Exec.SideInst.ptKX (XI170 XI0)
+set_option hygiene false in
+local notation "ZG" => NockvmE2E.Exec.SideInst.GX (XI170 XI0)
+set_option hygiene false in
+local notation "ZdecS" => NockvmE2E.Exec.SideInst.decSX (XI170 XI0)
+set_option hygiene false in
+local notation "Zdecode" => (id : OpenAll DgJ8 (merkleSkels (SMS)) → OpenAll DgJ8 (merkleSkels (SMS)))
+set_option hygiene false in
+local notation "Zguards" => (trueGuards _)
+set_option hygiene false in
+local notation "ZfkOf" => (NockvmE2E.Exec.SideInst.fkOfX s1 (XI170 XI0).l LV (XI170 XI0) decZ (NockvmE2E.Exec.SideInst.ω0S s1 (XI170 XI0).l LV))
+set_option hygiene false in
+local notation "ZfrOf" => (NockvmE2E.Exec.SideInst.frOfX s1 (XI170 XI0).l LV (XI170 XI0) (NockvmE2E.Exec.SideInst.ω0S s1 (XI170 XI0).l LV))
+set_option hygiene false in
+local notation "ZsideOf" => (fun g o => NockvmE2E.Exec.SideInst.sideOfX s1 (XI170 XI0).l LV (XI170 XI0) (FSM decZ ROM g) encZ o)
+
+open ProximityGap CoreDefinitions NockvmE2E.Succ.Numbers NockvmE2E.Merkle.Reduction NockvmE2E.Merkle.Good SoundnessWorld
+  SoundnessCoupling BadBound MerkleTreeMultiExtractability NockvmE2E.Merkle.SideMerkle in
+set_option maxHeartbeats 4000000 in
+/-- **`exec_e2e_J8V5S`**: `exec_e2e_J8V5` with the `hspec : HSpec (XI170 XI0)` binder deleted (discharged by `hspec_of_shape hgates hsh`). -/
+theorem exec_e2e_J8V5S {Statement Salt W : Type}
+    [DecidableEq Statement]
+    [DecidableEq Salt]
+    [Finite Statement]
+    [Finite Salt]
+    [Finite (NQuery (merkleSkels (MC)))]
+    [instTab : SampleableType (TabM[Statement, Salt])]
+    [Finite (NQuery Zskels)]
+    [instTabF : SampleableType (∀ d', succinctRange DgJ8 ZOp (NQuery Zskels) ZStmt' ZSalt' (SMS) d')]
+    (hl : XI0.l = 170)
+    (encZ : Statement × Salt → List ℕ)
+    (decZ : List ℕ → Statement × Salt)
+    (hz : ∀ x, decZ (encZ x) = x)
+    (hS : StmtP D.d)
+    (hlink : NockvmE2E.J8.RVUJ8.InpLink D.d (XI170 XI0).pubIn)
+    (hids : ∀ id ∈ D.d.Pb.regs, id < NockvmE2E.J8.InstJ8.P)
+    (hmask : maskOk (XI170 XI0) = true)
+    (hnumeralOk : NockvmE2E.Exec.MaskOk.numeralOk (XI170 XI0) = true)
+    (hjet : ∀ t : Fin (XI170 XI0).tabs.size, (XI170 XI0).tabs[t].chip.id = "jetChipJ8" →
+      ∀ c, c < (XI170 XI0).tabs[t].nc - (XI170 XI0).tabs[t].npub → (XI170 XI0).colKind[(XI170 XI0).tabs[t].col0 + c]! = 1 →
+        NockvmE2E.Exec.MaskBridge.LagrAt IX (XI170 XI0).pubOf.size tp hcapV t c)
+    (hgates : setupGates (XI170 XI0) = true)
+    (hk : 1 ≤ (XI170 XI0).k)
+    (hdomS : 2 ^ (∑ j, (s1 j).val) * (1 : ℕ+).val ≤ 2 ^ (XI170 XI0).nD)
+    (θ : ℝ)
+    (δ ε : ℝ≥0)
+    (hε : ProximityGap.caError ZG
+      (ReedSolomon.code ((smoothDomain (XI170 XI0).nD (J8Shape.hn32_of_shape hsh) : SmoothCosetFftDomain (XI170 XI0).nD KC) :
+        Fin (2 ^ (XI170 XI0).nD) ↪ KC) (2 ^ (∑ i, (s1 i).1) * (1 : ℕ+))).carrier δ δ ≤ ε)
+    (hfb : 2 ^ ((XI170 XI0).k + 1) ≤ friBound s1 1)
+    (hN : friBound s1 1 + 1 ≤ 2 ^ (XI170 XI0).nD)
+    (hδ : δ ≤ Code.relativeUniqueDecodingRadius
+      (ReedSolomon.code (domEmb (smoothDomain (XI170 XI0).nD (J8Shape.hn32_of_shape hsh))) (friBound s1 1 + 1) :
+        Set (Fin (2 ^ (XI170 XI0).nD) → KC)))
+    (Aon : OracleComp (SuccinctSpecK DgJ8 (OPN) (NQuery (merkleSkels (MC))) Statement Salt (MC) +
+        OracleSpec.ofFn (succinctRange DgJ8 ZOp (NQuery Zskels) ZStmt' ZSalt' (SMS)))
+      (Option (Statement × Salt × FlatProof × FixProof × W)))
+    (Q_FS Q_H V Pn : ℕ)
+    (hQFS : Q_FS ≤ 2 ^ 64)
+    (hQH : Q_H ≤ 2 ^ 64)
+    (hV : V ≤ 2 ^ 32)
+    (hFS : FsBound (Q := NQuery (merkleSkels (MC))) (∅ : (ofFn (SoundnessWorld.KC DgJ8 (OPN) Statement Salt (MC))).QueryCache)
+      Q_FS (verifiedFS (trueGuards _) (embedAdv DgJ8 EMBF
+        (E2EOnlineP.repackP (fun o : Statement × Salt × FlatProof × FixProof × W => (o.1, o.2.1, o.2.2.1, (o.2.2.2.1, o.2.2.2.2))) Aon))))
+    (hHq : IsQueryBoundP (embedAdv DgJ8 EMBF
+        (E2EOnlineP.repackP (fun o : Statement × Salt × FlatProof × FixProof × W => (o.1, o.2.1, o.2.2.1, (o.2.2.2.1, o.2.2.2.2))) Aon))
+      (@isHashQuery (NQuery (merkleSkels (MC))) DgJ8 _ (SoundnessWorld.KC DgJ8 (OPN) Statement Salt (MC))) Q_H)
+    (hterm : ∀ (roots : List DgJ8) (h : roots.length = (merkleSkels (MC)).length) (op : OPN)
+      (logs : Fin (merkleSkels (MC)).length → MerkleTreeExtractor.QueryLog (NQuery (merkleSkels (MC))) DgJ8),
+      claimsQueryCount (mkClaims (merkleSkels (MC)) roots h op logs) ≤ V)
+    (hconfig : ∀ tag, (mconfig (merkleSkels (MC))).nodeBudget tag ≤ Pn)
+    (Q_FSf Q_Hf Vf Pf T : ℕ)
+    (hFSf : ∀ g : TabM[Statement, Salt], FsBound (Q := NQuery Zskels)
+      (∅ : (ofFn (SoundnessWorld.KC DgJ8 ZOp ZStmt' ZSalt' (SMS))).QueryCache) Q_FSf (verifiedFS Zguards (sideAdv ZsideOf Aon g)))
+    (hHf : ∀ g : TabM[Statement, Salt], IsQueryBoundP (sideAdv ZsideOf Aon g)
+      (@isHashQuery (NQuery Zskels) DgJ8 _ (SoundnessWorld.KC DgJ8 ZOp ZStmt' ZSalt' (SMS))) Q_Hf)
+    (htermf : ∀ (roots : List DgJ8) (h : roots.length = (merkleSkels (SMS)).length) (op : ZOp)
+      (logs : Fin (merkleSkels (SMS)).length → MerkleTreeExtractor.QueryLog (NQuery Zskels) DgJ8),
+      claimsQueryCount (mkClaims (merkleSkels (SMS)) roots h (Zdecode op) logs) ≤ Vf)
+    (hconfigf : ∀ tag, (mconfig (merkleSkels (SMS))).nodeBudget tag ≤ Pf)
+    (hTb : 2 * ((NockvmE2E.Exec.VKBind.vkSp (XI170 XI0)).total - 1) ≤ T) :
+    Pr{let g ← $ᵗ TabM[Statement, Salt]; let gF ← $ᵗ (∀ d', succinctRange DgJ8 ZOp (NQuery Zskels) ZStmt' ZSalt' (SMS) d'); let o ← simulateQ (E2EOnlineP.withTable2 g gF) Aon}[
+      match o with
+      | none => False
+      | some (z, salt, π, πF, _) =>
+        verifyOnline' (vkSide (XI170 XI0) Zskels (fun k : Key (ZStmt' × ZSalt') PUnit (compiledRoundsK DgJ8 ZOp (SMS)) => Key.Challenge k) gF)
+          (HTM g) (HfOf Zskels (fun k : Key (ZStmt' × ZSalt') PUnit (compiledRoundsK DgJ8 ZOp (SMS)) => Key.Challenge k) gF)
+          (FSM decZ ROM g) (FSfOf Zskels (fun k : Key (ZStmt' × ZSalt') PUnit (compiledRoundsK DgJ8 ZOp (SMS)) => Key.Challenge k) ZfkOf ZfrOf gF) (encZ (z, salt)) π πF = true ∧ ¬ Nock.Jet.HoldsN D.d.c] ≤
+      (2 ^ 82 : ℝ≥0∞)⁻¹ +
+        (bfriErr (ω := smoothDomain (XI170 XI0).nD (J8Shape.hn32_of_shape hsh)) s1 1 (XI170 XI0).l θ δ ε Q_FSf +
+          (multiCheckpointROMErrorNumerator (((XI170 XI0).k * (Q_FSf + 1)) * Pf) ((XI170 XI0).k * (Q_FSf + 1)) Vf Q_Hf : ℝ≥0∞) *
+            (Nat.card DgJ8 : ℝ≥0∞)⁻¹ +
+          ((Q_Hf + Vf + T) ^ 2 : ℝ≥0∞) / (2 * (Nat.card DgJ8 : ℝ≥0∞))) := by
+  exact exec_e2e_J8V5 (hspec := NockvmE2E.Exec.V.hspec_of_shape hgates hsh)
+    (XI0 := XI0) (hsh := hsh) (hshX := hshX) (D := D) (hdk := hdk) (R := R) (hT := hT) (hσ := hσ) (hfree := hfree) (tp := tp) (hchips := hchips) (hnum0 := hnum0) (I0 := I0) (I := I) (Ifin := Ifin) (m0 := m0) (mf := mf) (Statement := Statement) (Salt := Salt) (W := W) (hl := hl) (encZ := encZ) (decZ := decZ) (hz := hz) (hS := hS) (hlink := hlink) (hids := hids) (hmask := hmask) (hnumeralOk := hnumeralOk) (hjet := hjet) (hgates := hgates) (hk := hk) (hdomS := hdomS) (θ := θ) (δ := δ) (ε := ε) (hε := hε) (hfb := hfb) (hN := hN) (hδ := hδ) (Aon := Aon) (Q_FS := Q_FS) (Q_H := Q_H) (V := V) (Pn := Pn) (hQFS := hQFS) (hQH := hQH) (hV := hV) (hFS := hFS) (hHq := hHq) (hterm := hterm) (hconfig := hconfig) (Q_FSf := Q_FSf) (Q_Hf := Q_Hf) (Vf := Vf) (Pf := Pf) (T := T) (hFSf := hFSf) (hHf := hHf) (htermf := htermf) (hconfigf := hconfigf) (hTb := hTb)
+
+end NockvmE2E.Exec.E2EJ8V
+
+#print axioms NockvmE2E.Exec.E2EJ8V.hglue_J8
+#print axioms NockvmE2E.Exec.E2EJ8V.exec_e2e_J8V5
+#print axioms NockvmE2E.Exec.E2EJ8V.exec_e2e_J8V5S

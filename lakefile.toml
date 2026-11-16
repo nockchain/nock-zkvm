@@ -1,0 +1,49 @@
+name = "nock"
+defaultTargets = ["Nock"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "v4.35.0"
+
+[[lean_lib]]
+name = "Nock"
+
+# Standalone, VM-independent "Pure Nock" library: Nock semantics without the zkVM.
+[[lean_lib]]
+name = "NockPure"
+
+[[lean_exe]]
+name = "trace-demo"
+root = "TraceDemo.Main"
+
+# The J-8 checker CLI: `check` (in-process), `drive` (generate + Fiat–Shamir, write files), `verify` (re-check stored files), `report`; exit 0 accept / 1 reject / 2 usage.
+# Rooted under TraceDemo/ so that no `main` is reachable from Nock.lean.
+[[lean_exe]]
+name = "nockvm-j8check"
+root = "TraceDemo.J8CheckMain"
+
+# Dumps a generated J-8 input as a Lean literal (`jet` = the tiny jetted program; default = the example).
+[[lean_exe]]
+name = "nockvm-j8dump"
+root = "TraceDemo.J8Dump"
+
+# Tamper tables, the sequentiality exhibit and the ablation suite on the J-8 checker.
+[[lean_exe]]
+name = "nockvm-d5red"
+root = "TraceDemo.D5RedMain"
+
+# Dumps the J-9 big-claim demo input (`*[[(p+5) 0] [0 2]] = p+5`) as a Lean literal (`dump`).
+[[lean_exe]]
+name = "nockvm-j9dump"
+root = "TraceDemo.J9Dump"
+
+# Emits the J-9 A run in a prover layout (`<id>.trace.json`, `coins.json`, `pubeq.json`).
+[[lean_exe]]
+name = "nockvm-j9aemit"
+root = "TraceDemo.J9AEmit"
+
+# Emits the J-9 AL run in a prover layout.
+[[lean_exe]]
+name = "nockvm-j9alemit"
+root = "TraceDemo.J9ALEmit"

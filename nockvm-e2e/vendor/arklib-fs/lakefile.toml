@@ -1,0 +1,32 @@
+name = "arklibFs"
+
+# The ten ArkLib modules of upstream pull requests #1280 and #1282 (by Quang Dao) that
+# nockvm-e2e imports, vendored with their module names moved to ArkLibFs.*. See README.md.
+
+[leanOptions]
+pp.unicode.fun = true
+autoImplicit = false
+weak.linter.mathlibStandardSet = true
+weak.linter.style.longFile = 1500
+weak.linter.style.header = false
+
+[[require]]
+name = "Arklib"
+git = "https://github.com/Verified-zkEVM/ArkLib"
+rev = "c488a3a4dabd74c543ee39836523b116dbc7ba2b"
+
+[[lean_lib]]
+name = "ArkLibFs"
+requiresModuleSystem = true
+roots = [
+  "ArkLibFs.Interaction.Oracle.FiatShamir.SingleSaltSecurity",
+  "ArkLibFs.Interaction.Oracle.FiatShamir.InducedAdversary",
+  "ArkLibFs.Interaction.Oracle.FiatShamir.StoppedCompletionTransport",
+  "ArkLibFs.Interaction.Oracle.FiatShamir.PublicStopped",
+  "ArkLibFs.Interaction.Oracle.FiatShamir.PublicMessage",
+  "ArkLibFs.Interaction.Oracle.FiatShamir.PublicExecutionCorrespondence",
+  "ArkLibFs.Interaction.Oracle.Security.StateRestorationStoppedBudget",
+  "ArkLibFs.Interaction.Oracle.Security.StateRestorationStopped",
+  "ArkLibFs.Interaction.Oracle.Security.StateRestorationRandomized",
+  "ArkLibFs.Interaction.Oracle.Security.StateRestorationRandomizedKnowledge",
+]

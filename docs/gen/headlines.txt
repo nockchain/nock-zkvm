@@ -1,0 +1,154 @@
+# section | name (short or qualified) | role
+# Library headlines: the 123 declarations of scripts/delivery-axioms.lean, in that order.
+Library: J-8 and J-9 B | Nock.NockVMROM.Thm54.VclL.Handle.CleanJ8.probJ8V_final_clean | 
+Library: J-8 and J-9 B | Nock.NockVMROM.Thm54.VclL.Handle.CleanJ8V.probJ8V_verified | 
+Library: jets and templates | Nock.Jet.VerifiedRegistry.ofCompiled | 
+Library: J-8 and J-9 B | Nock.NockVMROM.Thm54.VclL.Handle.LinkJ9G.probJ9B_final_clean | 
+Library: J-8 and J-9 B | Nock.NockVMROM.Thm54.VclL.Handle.ComplJ8Closed.complJ8_closed | 
+Library: J-8 and J-9 B | Nock.NockVMROM.Thm54.VclL.Handle.ComplJ9BClosed.complJ9B_closed | 
+Library: J-8 and J-9 B | Nock.RedTeam.Batch4776.nvJet_hyps_final_clean | 
+Library: J-8 and J-9 B | Nock.RedTeam.Batch4777.nvJet_final_const | 
+Library: J-8 and J-9 B | Nock.RedTeam.Batch4779.eq5_final_const | 
+Library: J-8 and J-9 B | Nock.RedTeam.Batch4812.probJ9B_nonvacuous_demo | 
+Library: J-8 and J-9 B | Nock.RedTeam.Batch4842.complJ8_closed_toy | 
+Library: J-8 and J-9 B | Nock.RedTeam.Batch4842.complJ8_closed_toy_figure | 
+Library: J-8 and J-9 B | Nock.RedTeam.Batch4856.complJ9B_toy | 
+Library: J-8 and J-9 B | Nock.RedTeam.Batch4856.complJ9B_toy_figure | 
+Library: J-8 and J-9 B | Nock.V1J8.Check.checkFast_eq | 
+Library: J-8 and J-9 B | Nock.V1J8.Check.checkJ8_iff | 
+Library: J-8 and J-9 B | Nock.DriverJ8.TranscriptJ8.pub_before_first_squeeze | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.ProbJ9A.probJ9A_final_clean | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.ComplJ9AAbsent.complJ9A_closed_absent | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.ComplJ9AClosed.complJ9A_closed | 
+Library: J-9 A | Nock.RedTeam.Batch4881.probJ9A_nonvacuous_demo | 
+Library: J-9 A | Nock.RedTeam.Batch4882.complJ9A_absent_toy | 
+Library: J-9 A | Nock.RedTeam.Batch4882.complJ9A_absent_toy_figure | 
+Library: J-9 A | Nock.RedTeam.Batch4883.complJ9A_toy | 
+Library: J-9 A | Nock.RedTeam.Batch4883.complJ9A_toy_figure | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9.ptrE_eq | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9.infoOfE_eq | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9.sxE_eq | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9.mvE_getD | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9.genJ9A_pointer_data | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.E2EJ9AIface.epsilonOf_listJ9A | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.E2EJ9AIface.soundJ9A_pointwise | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.E2EJ9AIface.oneRound_listJ9A | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.ProviderG.acceptsGenericG_j8_iff | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.ProviderJ9A.acceptsGeneric_j9a_iff | 
+Library: J-9 A | Nock.V1J9A.FillX9.colX9E_eq | 
+Library: J-9 A | Nock.V1J9A.FillX9.nodeLab9E_eq | 
+Library: J-9 A | Nock.V1J9A.CompX9.gatesHX9_src | 
+Library: J-9 A | Nock.V1J9A.CompX9.checkCompX9_gates_iff | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9A.genJ9AX_data | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9AChips.axGenE_cols | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9AChips.pubsXE_eq | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9AChips.spGenE_cols | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9AChips.pubsSE_eq | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9AComputeTot.compGenX9_rho | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9AComputeTot.compGenX9_rhoS | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9AComputeTot.compGenX9_eq_closed | 
+Library: J-9 A | Nock.V1J9A.CheckJ9AIffComp.checkJ9AX_iff | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9AHonest.genJ9AX_honest_at | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9AHonest.genJ9AX_honest | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9AHonest.checkJ9AX_genJ9AX | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9AHGoodCoin.badE_le | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9AHGoodCoin.epsC_lt | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9AHGoodCoin.exists_good_coinE | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.ComplClosedChecked.complJ8_closed_of | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.ComplClosedChecked.complJ9A_closed_of | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.ComplClosedChecked.complJ9B_closed_of | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9AHonestJ.genJ9AXJ_honest_at | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9AHonestJ.genJ9AXJ_honest | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9AHonestJ.checkJ9AX_genJ9AXJ | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9AHGoodCoinJ.badE_leJ | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9AHGoodCoinJ.epsC_ltJ | 
+Library: J-9 A | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9AHGoodCoinJ.exists_good_coinEJ | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.ComplJ9ALClosed.complJ9AL_closed | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.ComplJ9ALClosed.complJ9AL_closed_of | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9ALHonestJ.checkJ9ALX_genJ9ALXJ | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9ALHonestJ.genJ9ALXJ_honest | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9ALHonestJ.genJ9ALXJ_honest_at | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9ALHonestJ.honest_rec_atJL | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9ALHStaged.checkJ9ALX_staged | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9ALHStaged.checkJ9AX_stagedA | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9ALHStaged.runStagedA_eq | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9ALHStaged.runStaged_assemble | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9ALHStaged.runStaged_eq | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.ProbJ9AL.probJ9AL_final_clean | 
+Library: J-9 AL | Nock.RedTeam.Batch4921.complJ9AL_toy | 
+Library: J-9 AL | Nock.RedTeam.Batch4922.false_claim_rejected_AL | 
+Library: J-9 AL | Nock.RedTeam.Batch4922.wrap_claim_rejected_AL | 
+Library: J-9 AL | Nock.RedTeam.Batch4923.nc16_cell_operand_rejected_AL | 
+Library: J-9 AL | Nock.RedTeam.Batch4923.opConfusion_rejected | 
+Library: J-9 AL | Nock.RedTeam.Batch4930.acceptsJ9AL_withPrims | 
+Library: J-9 AL | Nock.RedTeam.Batch4932.complJ9AL_toy_figure | 
+Library: J-9 AL | Nock.RedTeam.Batch4933.complJ9AL_toy_figure | 
+Library: J-9 AL | Nock.RedTeam.Batch4934.complJ9AL_toy_figure | 
+Library: J-9 AL | Nock.RedTeam.Batch4935.acceptsJ9AL_noAlu | 
+Library: J-9 AL | Nock.RedTeam.Batch4936.genLink_toy | 
+Library: J-9 AL | Nock.RedTeam.Batch4937.genLinkMat | 
+Library: J-9 AL | Nock.V1J9AL.CheckJ9ALIff.checkJ9ALX_iff | 
+Library: jets and templates | Nock.Jet.Autogen.compile_faithful | 
+Library: jets and templates | Nock.Jet.Autogen.compile_complete | 
+Library: jets and templates | Nock.Jet.Autogen.compile_jetSpec_faithful | 
+Library: jets and templates | Nock.Jet.Interp.interp_sound | 
+Library: jets and templates | Nock.Jet.Interp.interp_complete | 
+Library: J-9 A | Nock.RedTeam.Batch4892.complJ9A_closed_of_N | 
+Library: J-9 A | Nock.RedTeam.Batch4892.complJ9A_N_figure | 
+Library: J-9 A | Nock.RedTeam.Batch4893.good_coin_N | 
+Library: J-9 A | Nock.RedTeam.Batch4893.numerics_N | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.E2EJ9ALIface.listJ9AL | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.E2EJ9ALIface.epsilonOf_listJ9AL | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.E2EJ9ALIface.soundJ9AL_pointwise | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.E2EJ9ALIface.oneRound_listJ9AL | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9ALHAluE.preL_eval_pregCol | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9ALHOrbFree.lastRow_S_zero | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9ALHOrbFree.honest_rec_atJL' | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9ALHOrbFree.genJ9ALXJ_honest_at' | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9ALHOrbFree.genJ9ALXJ_honest_at_of' | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9ALHAluE.pregTableOK_iff | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9ALHAluE.pregOK_of_tableCheck | 
+Library: J-9 AL | Nock.NockVMROM.Thm54.VclL.Handle.GenPortJ9ALHAluE.pregOK_of_tableCheck_interp | 
+Library: trace uniqueness (P1 fragment) | Nock.NockVMROM.Thm54.VclL.Handle.TU.TraceUniqueP1.trace_unique_good_final | 
+Library: trace uniqueness (P1 fragment) | Nock.NockVMROM.Thm54.VclL.Handle.TU.TraceUniqueP1Closed.canon_eq_closed | 
+Library: trace uniqueness (P1 fragment) | Nock.NockVMROM.Thm54.VclL.Handle.TU.TraceUniqueP1Closed.trace_unique_prob_closed | 
+Library: trace uniqueness (P1 fragment) | Nock.NockVMROM.Thm54.VclL.Handle.TU.TraceUniqueP1Closed.trace_unique_prob_119 | 
+Library: trace uniqueness (P1 fragment) | Nock.NockVMROM.Thm54.VclL.Handle.TU.TraceUniqueP1Closed.trace_unique_prob_split | 
+Library: trace uniqueness (P1 fragment) | Nock.NockVMROM.Thm54.VclL.Handle.TU.TraceUniqueP1Closed.hcovC_P1 | 
+Library: trace uniqueness (P1 fragment) | Nock.NockVMROM.Thm54.VclL.Handle.TU.CanonSideP1.canon_complete' | 
+Library: trace uniqueness (P1 fragment) | Nock.RedTeam.Batch4938.toy_trace_unique_119 | 
+Library: J-9 AL | Nock.RedTeam.Batch4939.genLinkTpl | 
+Library: J-9 AL | Nock.RedTeam.Batch4939.complJ9AL_tpl | 
+Library: J-9 AL | Nock.RedTeam.Batch4939.honestTpl | 
+Library: J-9 AL | Nock.RedTeam.Batch4939.rowsTpl_le | 
+Library: J-9 AL | Nock.RedTeam.Batch4939.nRowsTpl_le_768 | 
+Library: J-9 AL | Nock.RedTeam.Batch4939.honestTplUnif | 
+# End-to-end package (nockvm-e2e)
+End to end | nock_e2e_J9AL_succinct_B | release headline, ALU big-atom jets
+End to end | nock_e2e_J9ALJ_succinct_B | release headline, ALU + catalogue template jets
+End to end | nock_e2e_J9AL_succinct | base form of the j9al headline
+End to end | nock_e2e_J9ALJ_succinct | base form of the j9alj headline
+End to end | nock_e2e_J9AL_succinct_S | headline at the executed verdict (j9al)
+End to end | nock_e2e_J9ALJ_succinct_S | headline at the executed verdict (j9alj)
+End to end | nock_e2e_J9AL_numbers | numeric corollary
+End to end | rapFriEps_le_Q | numbers bound for every Fiat-Shamir query budget Q
+End to end | nock_e2e_J9A_succinct | jet-free twin (no cost clause; see nock_e2e_J9A_succinct_SC)
+End to end | nock_e2e_J9A_succinct_SC | jet-free twin with the cost clause costModel ≤ 6000·S⁶
+End to end | exec_e2e_J9ALV | gate form
+End to end | verdict9LVS_sound | executed verdict -> _B hypothesis (j9al)
+End to end | verdict9LJVS_sound | executed verdict -> _B hypothesis (j9alj)
+End to end | verifyBytesL_sound | certified verifier, j9al
+End to end | verifyBytesLJ_sound | certified verifier, j9alj
+End to end | verifyReport_ok | certified verifier report
+End to end | batchedFri_singleSalt_soundness | batched FRI, single-salt Fiat-Shamir
+End to end | vkSide_eq | vk side oracle = executable Tip5
+End to end | hops9L_of_chips | chip gate -> table ops
+Machine | HoldsN | the target predicate (claim holds under evalN)
+End to end | binders_add_indep | non-vacuity of the j9al headline at the add instance
+End to end | binders_add_dep | non-vacuity of the j9al headline at the add instance
+End to end | binders_jp_indep | non-vacuity of the j9alj headline at jp
+End to end | binders_jp_dep | non-vacuity of the j9alj headline at jp
+End to end | rap_fri_merkle_sound_deep | succinct layer: hash-compiled RAP + DEEP + batched FRI
+End to end | rap_fri_merkle_sound_deep_numbers | succinct layer: the 2^-82 figure
+End to end | rap_singleSalt_knowledge_soundness | succinct layer: staged RAP, single-salt Fiat-Shamir
+End to end | rap_succinct_unique | uniqueness (not used by the headlines)

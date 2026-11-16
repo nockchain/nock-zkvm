@@ -1,0 +1,62 @@
+/-
+Axiom guard for `Merkle/Fri.lean`.
+-/
+import NockvmE2E.Merkle.Fri
+
+#print axioms NockvmE2E.Merkle.Fri.wordDom
+#print axioms NockvmE2E.Merkle.Fri.friMsgEquivFun
+#print axioms NockvmE2E.Merkle.Fri.FriLeaves
+#print axioms NockvmE2E.Merkle.Fri.card_wordDom
+#print axioms NockvmE2E.Merkle.Fri.perfectLeaves
+#print axioms NockvmE2E.Merkle.Fri.friWords
+#print axioms NockvmE2E.Merkle.Fri.friMerkleMask
+#print axioms NockvmE2E.Merkle.Fri.friMask
+#print axioms NockvmE2E.Merkle.Fri.baseRounds_friMerkleMask
+#print axioms NockvmE2E.Merkle.Fri.baseRounds_friMask
+#print axioms NockvmE2E.Merkle.Fri.PM
+#print axioms NockvmE2E.Merkle.Fri.PM_pos
+#print axioms NockvmE2E.Merkle.Fri.PM_neg
+#print axioms NockvmE2E.Merkle.Fri.PM.instFinite
+#print axioms NockvmE2E.Merkle.Fri.PM.instDecEq
+#print axioms NockvmE2E.Merkle.Fri.PM.fst
+#print axioms NockvmE2E.Merkle.Fri.pairedBy
+#print axioms NockvmE2E.Merkle.Fri.round_eq_of_msg
+#print axioms NockvmE2E.Merkle.Fri.friAltP
+#print axioms NockvmE2E.Merkle.Fri.friAltP_midRound_pos
+#print axioms NockvmE2E.Merkle.Fri.friAltP_midRound_neg
+#print axioms NockvmE2E.Merkle.Fri.friAltP_tailRounds
+#print axioms NockvmE2E.Merkle.Fri.friAltP_rounds
+#print axioms NockvmE2E.Merkle.Fri.friAcceptsP
+#print axioms NockvmE2E.Merkle.Fri.friAcceptsP_iff
+#print axioms NockvmE2E.Merkle.Fri.fri_paired_singleSalt_soundness
+#print axioms NockvmE2E.Merkle.Fri.Dw
+#print axioms NockvmE2E.Merkle.Fri.readPts
+#print axioms NockvmE2E.Merkle.Fri.eval_verifyQueries_congr
+#print axioms NockvmE2E.Merkle.Fri.qpre
+#print axioms NockvmE2E.Merkle.Fri.queryBad_congr
+#print axioms NockvmE2E.Merkle.Fri.PrefRel
+#print axioms NockvmE2E.Merkle.Fri.PrefRel.concat
+#print axioms NockvmE2E.Merkle.Fri.StepRel
+#print axioms NockvmE2E.Merkle.Fri.tailPath_rel
+#print axioms NockvmE2E.Merkle.Fri.pathTranscript_rel
+#print axioms NockvmE2E.Merkle.Fri.xp
+#print axioms NockvmE2E.Merkle.Fri.friRel
+#print axioms NockvmE2E.Merkle.Fri.cast_fun_apply
+#print axioms NockvmE2E.Merkle.Fri.queryBad_congr_of_rel
+#print axioms NockvmE2E.Merkle.Fri.selectedValueAt_selectedValues
+#print axioms NockvmE2E.Merkle.Fri.leaf_eq_of_selectedValues
+#print axioms NockvmE2E.Merkle.Fri.friWords_get
+#print axioms NockvmE2E.Merkle.Fri.words_agree
+#print axioms NockvmE2E.Merkle.Fri.friRel_of_eq
+#print axioms NockvmE2E.Merkle.Fri.friRel_merkle
+#print axioms NockvmE2E.Merkle.Fri.friAlt_r
+#print axioms NockvmE2E.Merkle.Fri.toTail
+#print axioms NockvmE2E.Merkle.Fri.toFriPath
+#print axioms NockvmE2E.Merkle.Fri.friAccepts'
+#print axioms NockvmE2E.Merkle.Fri.XsOf
+#print axioms NockvmE2E.Merkle.Fri.Covers
+#print axioms NockvmE2E.Merkle.Fri.stepRel_of_agrees
+#print axioms NockvmE2E.Merkle.Fri.friLocal
+#print axioms NockvmE2E.Merkle.Fri.fri_queryOnly
+#print axioms NockvmE2E.Merkle.Fri.PM.instFinite
+#print axioms NockvmE2E.Merkle.Fri.PM.instDecEq

@@ -1,0 +1,35 @@
+nockvm-e2e
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This package builds on ArkLib (https://github.com/Verified-zkEVM/ArkLib),
+licensed under the Apache License, Version 2.0:
+
+  - upstream ArkLib main at c488a3a4dabd74c543ee39836523b116dbc7ba2b (2026-11-01),
+    fetched from GitHub and pinned in lakefile.toml and lake-manifest.json;
+  - plus ten modules of upstream pull requests #1280 (head 3444c2f7) and #1282
+    (head 89433a85), both by Quang Dao, which this package imports. Both pull
+    requests were closed on GitHub without being merged. The ten files are
+    included unchanged except that their module names are moved from ArkLib.* to
+    ArkLibFs.* (file paths and the import lines among them; declaration names and
+    proofs unchanged; each file carries a modification notice), with their own
+    Apache-2.0 headers and ArkLib's LICENSE,
+    in vendor/arklib-fs/ (a small Lake package that requires ArkLib at the
+    revision above). There is no other ArkLib-side change.
+
+ArkLib's work, used and not re-proved here:
+  - Reed-Solomon codes, FRI and batched-FRI soundness, round-by-round and
+    state-restoration security (upstream main);
+  - the single-salt Fiat-Shamir framework and its security
+    (pull requests #1280 and #1282).
+
+This package's own work:
+  - NockvmE2E/FriPort: the single-salt Fiat-Shamir soundness of the batched FRI
+    used here (batchedFri_singleSalt_soundness), obtained by lifting ArkLib's
+    FRI soundness through ArkLib's single-salt framework;
+  - NockvmE2E/Lift: the lift from round-by-round soundness to the Fiat-Shamir
+    transform for the composed protocol;
+  - NockvmE2E/Deep, NockvmE2E/Rap, NockvmE2E/Merkle, NockvmE2E/Succ and the
+    end-to-end theorems built on them.
+
+Other Lean dependencies (Mathlib, Batteries, Aesop, VCVio, CompPoly and others)
+are used at the revisions in lake-manifest.json, under their own licences.
